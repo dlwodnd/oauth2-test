@@ -8,7 +8,6 @@ app:
   oauth2:
     authorized-redirect-uris:
       - http://localhost:8080/oauth/redirect
-      - http://192.168.0.144:8080/oauth/redirect
       - http://localhost:3000/oauth/redirect
 spring:
   jpa:
