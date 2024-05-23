@@ -48,6 +48,7 @@ public class OAuth2AuthenticationRequestBasedOnCookieRepository
                     , redirectUriAfterLogin, COOKIE_EXPIRE_SECONDS);
         }
 
+
     }
 
     @Override

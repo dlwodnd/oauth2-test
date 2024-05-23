@@ -60,6 +60,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         }
 
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
+        log.info("determineTargetUrl: {}", targetUrl);
 
         MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
         MyPrincipal myPrincipal = myUserDetails.getMyPrincipal();
@@ -76,7 +77,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         return UriComponentsBuilder.fromUriString(targetUrl)
                                     .queryParam("access_token", at)
-                                    .queryParam("user_pk", userInfo)
+                                    .queryParam("user_pk", userInfo.getUserPk())
                                     .queryParam("nickname", userInfo.getNickname()).encode()
                                     .queryParam("pic", userInfo.getUserPic())
                                     .build()
